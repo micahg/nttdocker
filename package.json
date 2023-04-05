@@ -1,0 +1,11 @@
+{
+  "name": "NTT Docker Image",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Micah Galizia",
+  "license": "MIT"
+}
