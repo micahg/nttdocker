@@ -23,11 +23,15 @@ jobs:
           echo "container_version=$VERSION"
           echo "container_version=$VERSION" >> "$GITHUB_ENV"
       - name: Download UI Package
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           UI_PKG=$(npm pack @micahg/ntt)
           echo "ui_package=$UI_PKG"
           echo "ui_package=$UI_PKG" >> "$GITHUB_ENV"
       - name: Download API Package
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           API_PKG=$(npm pack @micahg/nttsrv)
           echo "api_package=$API_PKG"
