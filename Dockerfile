@@ -6,8 +6,9 @@ WORKDIR /usr/src/app
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
-COPY ./package/package.json ./
-COPY ./package/server.js ./
+COPY ./nttsrv/package/package.json ./
+COPY ./nttsrv/package/server.js ./
+COPY ./ntt/package/build/ ./public
 
 # If you are building your code for production
 RUN npm install --omit=dev --only=production

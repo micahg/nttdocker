@@ -1,0 +1,42 @@
+name: Create Docker Images
+on:
+  push:
+    branches:
+      - test_actions
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Node Setup
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - name: Get Version
+        id: get_version
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "container_version=$VERSION"
+          echo "container_version=$VERSION" >> "$GITHUB_ENV"
+      - name: Download UI Package
+        run: |
+          UI_PKG=$(npm pack @micahg/ntt)
+          echo "ui_package=$UI_PKG"
+          echo "ui_package=$UI_PKG" >> "$GITHUB_ENV"
+      - name: Download API Package
+        run: |
+          API_PKG=$(npm pack @micahg/nttsrv)
+          echo "api_package=$API_PKG"
+          echo "api_package=$API_PKG" >> "$GITHUB_ENV"
+      - name: Build Docker Images
+        run: |
+          mkdir ntt
+          mkdir nttsrv
+          echo $UI_PKG
+          echo $API_PKG
+          tar xvf $UI_PKG -C ntt
+          tar xvf $API_PKG -C nttsrv
