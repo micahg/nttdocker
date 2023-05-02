@@ -15,7 +15,12 @@ Setup your package.json (just `npm init` with whatever). This repo has one just 
 Download your package with npm pack, eg:
 
 ```
-npm pack @micahg/nttsrv
-npm pack @micahg/ntt
-
+UI_PKG=$(npm pack @micahg/ntt)
+API_PKG=$(npm pack @micahg/nttsrv)
+mkdir ntt
+mkdir nttsrv
+echo $UI_PKG
+echo $API_PKG
+tar xvf $UI_PKG -C ntt
+tar xvf $API_PKG -C nttsrv
 ```
