@@ -43,5 +43,5 @@ jobs:
           mkdir nttsrv
           echo $UI_PKG
           echo $API_PKG
-          tar xvf $UI_PKG -C ntt
-          tar xvf $API_PKG -C nttsrv
+          tar xvf $ui_package -C ntt
+          tar xvf $api_package -C nttsrv
