@@ -41,7 +41,7 @@ jobs:
         run: |
           mkdir ntt
           mkdir nttsrv
-          echo $UI_PKG
-          echo $API_PKG
+          echo "Extracting $ui_package"
           tar xvf $ui_package -C ntt
+          echo "Extracting $api_package"
           tar xvf $api_package -C nttsrv
