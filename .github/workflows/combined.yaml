@@ -29,8 +29,6 @@ jobs:
           VERSION=$(node -p "require('./package.json').version")
           echo "container_version=$VERSION" >> "$GITHUB_ENV"
       - name: Download UI Package
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm config set registry="https://npm.pkg.github.com/"
           UI_PKG=$(npm pack @micahg/ntt)
@@ -38,7 +36,6 @@ jobs:
       - name: Download API Package
         run: |
           API_PKG=$(npm pack @micahg/nttsrv)
-          echo "api_package=$API_PKG"
           echo "api_package=$API_PKG" >> "$GITHUB_ENV"
       - name: Build Docker Images
         run: |
