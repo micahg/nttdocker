@@ -21,7 +21,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cat .npmrc
           echo "@micahg:registry=https://npm.pkg.github.com" >> .npmrc
           echo "//npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN" >> .npmrc
       - name: Get Version
