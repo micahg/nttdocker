@@ -2,7 +2,7 @@ name: Create Docker Images
 on:
   push:
     branches:
-      - test_actions
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
