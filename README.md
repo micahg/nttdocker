@@ -23,4 +23,4 @@ Setup .npmrc in your folder
 ```
 
 Once you can pull packages from github then you can follow the
-(github action)[.github/workflows/combined.yaml] steps
+[github action](.github/workflows/combined.yaml) steps.
