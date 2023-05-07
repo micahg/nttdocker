@@ -53,9 +53,11 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
       - name: Build and push
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: docker/build-push-action@v4
         with:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/ntt-combined:latest ${{ secrets.DOCKERHUB_USERNAME }}/ntt-combined:$container_version
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/ntt-combined:latest ${{ secrets.DOCKERHUB_USERNAME }}/ntt-combined:${{ env.container_version }}
