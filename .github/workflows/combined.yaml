@@ -60,4 +60,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/ntt-combined:latest ${{ secrets.DOCKERHUB_USERNAME }}/ntt-combined:${{ env.container_version }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/ntt-combined:latest , ${{ secrets.DOCKERHUB_USERNAME }}/ntt-combined:${{ env.container_version }}
