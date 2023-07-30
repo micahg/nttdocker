@@ -11,6 +11,13 @@ that runs the middle tier.
 To make life easy there is no authentication, reverse proxying, etc in the
 home-build.
 
+## Cutting a new release
+
+*This should automate* when you have more time.
+
+Right now it just pulls the latest packages and builds a combined image. Just
+update the package.json and then merge to main.
+
 ## Local Testing
 
 Testing github packages locally, go to https://github.com/settings/tokens and
