@@ -13,5 +13,8 @@ COPY ./ntt/package/build/ ./public
 # If you are building your code for production
 RUN npm install --omit=dev --only=production
 
+# Disable auth for local installs
+ARG DISABLE_AUTH=true
+
 EXPOSE 3000
 CMD [ "node", "server.js" ]
